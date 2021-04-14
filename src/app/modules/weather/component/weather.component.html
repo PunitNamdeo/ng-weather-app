@@ -1,0 +1,77 @@
+<!--Main Weather list -->
+<mat-accordion id="weatherListEU" *ngIf="!errorMessageOfCurrentWeather; else displayErrorMessageOfCurrentWeather">
+  <!--pane for each city-->
+  <mat-expansion-panel id="matExpansionPanel" *ngFor="let data of weatherList | keyvalue" (opened)="getCityWeatherForecast(data.key)">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span class="weather-title">{{ data.key }} ( {{ data.value.main.temp }} &deg;C )</span>
+        <img src="{{iconUrl}}{{data.value.weather[0].icon}}.png"/>
+      </mat-panel-title>
+      <div>
+        <mat-panel-description>
+          Wind speed :{{ data.value.wind.speed }} km/h
+        </mat-panel-description>
+      </div>
+    </mat-expansion-panel-header>
+
+    <h4 *ngIf="!errorMessageOfForecastWeather">Forecast for next few hours</h4>
+
+    <!--lazy loaded-->
+    <ng-template [ngIf]="!errorMessageOfForecastWeather">
+      <table mat-table [dataSource]="selectedWeatherForecast">
+        <!-- Position Column -->
+        <ng-container matColumnDef="dt_txt">
+          <th mat-header-cell *matHeaderCellDef> Time </th>
+          <td mat-cell *matCellDef="let element">{{ element.dt_txt | date : 'HH:mm' }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="temp">
+          <th mat-header-cell *matHeaderCellDef>Temperature </th>
+          <td mat-cell *matCellDef="let element"> {{element.main.temp}} &deg;C </td>
+        </ng-container>
+
+        <ng-container matColumnDef="speed">
+          <th mat-header-cell *matHeaderCellDef>Wind Speed </th>
+          <td mat-cell *matCellDef="let element"> {{element.wind.speed}} km/h </td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Details</th>
+          <td mat-cell *matCellDef="let element">
+            <span class="description">{{element.weather[0].description}}</span>
+            <img src="{{iconUrl}}{{element.weather[0].icon}}.png" alt="weather icon">
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </ng-template>
+
+    <!--display the error message when weather forecast API gets failed-->
+    <ng-template [ngIf]="errorMessageOfForecastWeather">
+      <ng-container *ngTemplateOutlet="errorMessageTemplate"></ng-container>
+    </ng-template>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<!--error message template to reuse in multiple places-->
+<ng-template #errorMessageTemplate>
+  <section>
+    <div>
+      We are trying to fetch the weather report...
+    </div>
+    <div>
+      <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+    </div>
+    <div>
+      ... But we can not find it due to some technical issue, Please try again later.
+    </div>
+  </section>
+</ng-template>
+
+<!--display the error message when current weather API gets failed-->
+<ng-template #displayErrorMessageOfCurrentWeather>
+  <ng-container *ngTemplateOutlet="errorMessageTemplate"></ng-container>
+</ng-template>

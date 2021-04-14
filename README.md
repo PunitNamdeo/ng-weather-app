@@ -1,3 +1,34 @@
+#Introduction
+This application is used to fetch and display weather data
+
+#Technical Stack Used
+Angular 11.x
+
+#Architecture followed 
+The architecture followed uses best principles for scalability in order to maintain sustainable development speed and ease of adding new features in the long run.
+
+![Scalable Architecture](./Scalable_Architecture_Diagram.jpg)
+
+View layer:- is responsible to present and to delegate user’s actions to the service layer, through the abstraction layer .
+
+Abstraction layer:- is responsible for a decoupling the view layer from the service layer and also has its very own defined responsibilities.
+
+Service layer:- is responsible for data manipulation and outside world communication happen here
+
+#Tree Structure
+This tree represents the directories created.
+````
+.
+├── weather-app-folder
+└── src
+├── app
+│   ├── core
+│   ├── data
+│   ├── layout
+│   ├── module
+│   └── shared
+└── styles
+````
 # NgWeatherApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.

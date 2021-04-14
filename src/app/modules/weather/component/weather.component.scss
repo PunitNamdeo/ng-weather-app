@@ -1,0 +1,71 @@
+#weatherListEU {
+
+  table {
+    width: 100vw;
+    background-color: #181e41;
+
+    th, td {
+      color: #ffffff;
+    }
+
+    .description {
+      position: relative;
+      bottom: 20px;
+    }
+  }
+
+  mat-expansion-panel {
+    margin: 1% 15% 0 15%;
+
+    .mat-expansion-panel-header {
+      background-color: #87cefa;
+    }
+
+    .mat-expansion-panel-header:hover {
+      background-color: rgb(188 224 238);
+    }
+
+    .mat-expansion-panel-header-title {
+      color: #181e41;
+    }
+
+    .mat-expansion-panel-header-description, ::ng-deep.mat-expansion-indicator::after {
+      color: rgb(0 0 0 / 70%);
+    }
+
+    .weather-title, .mat-expansion-panel-header-description {
+      position: relative;
+      top: 18px;
+    }
+
+    h4 {
+      font-weight: 500;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    ::ng-deep.mat-expansion-panel-content {
+      background-color: #181e41;
+    }
+  }
+}
+
+/*error message css*/
+section {
+  text-align: center;
+
+  div:nth-child(1), div:nth-child(3) {
+    font-size: 20px;
+    color: #ff0000;
+  }
+
+  div:nth-child(1) {
+    margin-top: 40px;
+  }
+
+  div:nth-child(2) {
+    width: 50%;
+    margin: auto;
+    padding: 20px 0 20px 0;
+  }
+}

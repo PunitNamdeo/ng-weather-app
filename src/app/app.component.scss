@@ -1,0 +1,44 @@
+.container {
+  min-height: 100%;
+  width: 100%;
+  background-color: #f3f3f3;
+
+  .mat-toolbar-row:first-child {
+    padding-top: 34px;
+  }
+
+  mat-card {
+    background: linear-gradient(to bottom, rgb(0 161 224 / 20%), #31afe0);
+    box-shadow: none !important;
+    padding: 0;
+
+    mat-card-header {
+      color: #181e41;
+      padding: 30px;
+
+      mat-card-title {
+        color: #181e41;
+      }
+    }
+
+    .mat-card-footer {
+      background: linear-gradient(to bottom, rgb(0 161 224 / 20%), rgb(0 161 224 / 20%));
+      height: calc(100vh - 600px);
+      margin-right: 0;
+    }
+  }
+
+  .footer {
+    position: sticky;
+    font-size: 10px;
+    top: calc( 100vh - 64px );
+
+    .footer-row {
+      padding-top: 15px;
+
+      :first-child {
+        padding-right: 5px;
+      }
+    }
+  }
+}
