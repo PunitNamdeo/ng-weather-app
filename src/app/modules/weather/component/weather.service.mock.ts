@@ -12,7 +12,7 @@ export class WeatherServiceMock {
     });
   }
 
-  getWeatherForecastByCity(): Observable<IWeatherDataList> {
+  getCityWeatherForecast(): Observable<IWeatherDataList> {
     return of({
       city: {name: 'Amsterdam', country: 'Netherlands'},
       list: [

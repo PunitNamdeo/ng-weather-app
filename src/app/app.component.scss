@@ -3,8 +3,16 @@
   width: 100%;
   background-color: #f3f3f3;
 
-  .mat-toolbar-row:first-child {
+  mat-toolbar-row, mat-card-header {
+    place-content: stretch center;
+  }
+
+  .title > span {
     padding-top: 34px;
+  }
+
+  .date > span{
+    padding-bottom: 34px;
   }
 
   mat-card {

@@ -9,6 +9,7 @@ import { IWeatherData } from '../../../data/schema/weatherData';
   providers: [WeatherService]
 })
 
+// WeatherComponent class to interact with weather API calls with the help of WeatherService DI
 export class WeatherComponent implements OnInit {
 
   cities: string[] = ['Paris', 'Zurich', 'Amsterdam', 'Berlin', 'Rome']; // list of cities
@@ -36,7 +37,7 @@ export class WeatherComponent implements OnInit {
     }, (err: string) =>  this.errorMessageOfCurrentWeather = err);
   }
 
-  // get forecast weather for a city
+  // get weather forecast for a city
   getCityWeatherForecast(city): void {
     this.weatherService.getWeatherForecastByCity(city).subscribe(data => {
       // get only first 4 forecast data ( till next 12 hours )

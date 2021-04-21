@@ -1,7 +1,7 @@
 <!--Main Weather list -->
 <mat-accordion id="weatherListEU" *ngIf="!errorMessageOfCurrentWeather; else displayErrorMessageOfCurrentWeather">
-  <!--pane for each city-->
-  <mat-expansion-panel id="matExpansionPanel" *ngFor="let data of weatherList | keyvalue" (opened)="getCityWeatherForecast(data.key)">
+  <!--panel for each city-->
+  <mat-expansion-panel id="mat-expansion-panel" *ngFor="let data of weatherList | keyvalue" (opened)="getCityWeatherForecast(data.key)">
     <mat-expansion-panel-header>
       <mat-panel-title>
         <span class="weather-title">{{ data.key }} ( {{ data.value.main.temp }} &deg;C )</span>

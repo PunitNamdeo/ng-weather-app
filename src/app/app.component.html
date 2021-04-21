@@ -1,15 +1,18 @@
+<!--container-->
 <div class="container">
+  <!--header-->
   <mat-toolbar color="primary">
-    <mat-toolbar-row fxLayoutAlign="center">
+    <mat-toolbar-row class="title">
       <span>Europe Weather forecast</span>
     </mat-toolbar-row>
-    <mat-toolbar-row fxLayoutAlign="center">
+    <mat-toolbar-row class="date">
       <span>{{ today | date : 'medium'}}</span>
     </mat-toolbar-row>
   </mat-toolbar>
 
+  <!--section - to display the city wise weather list-->
   <mat-card>
-    <mat-card-header fxLayoutAlign="center">
+    <mat-card-header>
       <mat-card-title>Checkout the weather of few hours!!</mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -18,8 +21,9 @@
     <mat-card-footer></mat-card-footer>
   </mat-card>
 
+  <!--footer-->
   <mat-toolbar color="primary" class="footer">
-    <mat-toolbar-row fxLayoutAlign="center" class="footer-row">
+    <mat-toolbar-row class="footer-row">
       <span>European Weather Forecast Ltd.</span>
       <span>Copyright © 2021 Open Weather API, inc. All rights reserved.</span>
     </mat-toolbar-row>

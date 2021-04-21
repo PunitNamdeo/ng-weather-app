@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -9,7 +9,6 @@ components of your project by importing only one module, your â€œMaterialModuleâ
 Otherwise, you have to import the MatModules every time in each module.*/
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 // load module for weather app
 import { WeatherModule } from './modules/weather/weather.module';
@@ -24,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatCardModule,
     MatToolbarModule,
-    FlexLayoutModule,
     WeatherModule,
     HttpClientModule
   ],
